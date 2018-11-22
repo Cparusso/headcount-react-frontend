@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  background-color: #E74C3C;
+  color: #ecf0f1;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+  height: 3.9em;
+}
+
+.nav h1 {
+  font-size: 1.7em;
+}
+
+#logo-with-bg {
+  width: 2em;
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+  width: 14em;
+}
+
+.left {
+  display: flex;
+  justify-content: space-between;
+  width: 12em;
+}
