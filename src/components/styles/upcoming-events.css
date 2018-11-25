@@ -1,0 +1,9 @@
+#event-container {
+  height: 30em;
+  overflow-y: hidden;
+}
+
+#events {
+  height: 30em;
+  overflow-y: scroll;
+}

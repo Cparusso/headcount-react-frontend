@@ -23,6 +23,10 @@
   width: 14em;
 }
 
+.right .navlink:hover {
+  text-decoration: underline;
+}
+
 .left {
   display: flex;
   justify-content: space-between;

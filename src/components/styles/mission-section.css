@@ -1,0 +1,27 @@
+.section-container {
+  background-color: #DED9D940;
+  height: 21em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 4em;
+}
+
+.blurb {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 35em;
+}
+
+img {
+  max-height: 13em;
+  max-width: 15em;
+  margin-right: 1em;
+}
+
+.content h2 {
+  margin-top: 0;
+}

@@ -1,0 +1,19 @@
+#footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 21em;
+}
+
+#footer-container h1 {
+  margin-bottom: -1em;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 14em;
+  margin-right: 1.5em;
+}

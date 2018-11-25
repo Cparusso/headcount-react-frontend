@@ -1,0 +1,16 @@
+.instructions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 17em;
+}
+
+.instructionCard {
+  padding-top: 1em;
+  width: 13em;
+  text-align: center;
+}
+
+.content {
+  height: 9em;
+}

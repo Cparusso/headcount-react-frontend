@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
 import logoWithBackground from '../images/hc-icon-bg.svg'
+import { NavLink } from 'react-router-dom'
 import './styles/nav.css'
 
 class Nav extends Component {
   render() {
     return (
       <div className='nav'>
-        <div className='nav left'>
-          <img id='logo-with-bg' src={logoWithBackground} alt='hc-icon' />
-          <h1>headcount</h1>
-        </div>
+        <NavLink className='navlink' to='/'>
+          <div className='nav left'>
+            <img id='logo-with-bg' src={logoWithBackground} alt='hc-icon' />
+              <h1>headcount</h1>
+          </div>
+        </NavLink>
         <div className='nav right'>
-          <h4>Home</h4>
-          <h4>About</h4>
-          <h4>Contact</h4>
+          <NavLink className='navlink' to='/search'>Search</NavLink>
+          <NavLink className='navlink' to='/about'>About</NavLink>
+          <NavLink className='navlink' to='/'>Contact</NavLink>
         </div>
       </div>
     );

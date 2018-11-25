@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import Nav from '../components/Nav'
-import Banner from '../components/Banner'
+import Banner from './Banner'
+import HowItWorks from './HowItWorks'
+import MissionSection from './MissionSection'
+import Footer from './Footer'
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <Banner />
+        <HowItWorks />
+        <MissionSection />
+        <Footer />
       </div>
     );
   }
