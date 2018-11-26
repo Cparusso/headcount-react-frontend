@@ -10,9 +10,9 @@ class Footer extends Component {
         <h1>Sign up to get started</h1>
         <div className='buttons'>
           <NavLink className='navlink' to='/user'>
-            <button className='log-or-sign-in'>Log In</button>
+            <button className='log-or-sign-in-footer'>Log In</button>
           </NavLink>
-          <button className='log-or-sign-in'>Sign Up</button>
+          <button className='log-or-sign-in-footer'>Sign Up</button>
         </div>
         <img className='footer-links' src={footerLinks} />
       </div>

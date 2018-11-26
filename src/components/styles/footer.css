@@ -15,5 +15,19 @@
   flex-direction: row;
   justify-content: space-between;
   width: 14em;
-  margin-right: 1.5em;
+  margin-right: 1.4em;
+}
+
+.log-or-sign-in-footer {
+  width: 5em;
+  height: 2em;
+  font-size: 1em;
+  font-weight: 700;
+  background-color: none;
+  color: #E74C3C;
+  border: none;
+}
+
+.log-or-sign-in-footer:active {
+  padding-top: 0.2em;
 }

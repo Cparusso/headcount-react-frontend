@@ -3,7 +3,18 @@ import './styles/event-map.css'
 
 import iconPin from '../images/hc-icon.svg'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+
+import icon from '../images/hc-icon.svg'
+
+
+let myIcon = L.icon({
+  iconUrl: icon,
+  iconSize: [38, 95],
+  iconAnchor: [19, 95],
+  popupAnchor: [0, -74],
+});
 
 class EventMap extends Component {
   state = {
@@ -53,7 +64,7 @@ class EventMap extends Component {
             />
           {
             this.state.haveUserLocation ?
-              <Marker position={position} >
+              <Marker position={position} icon={myIcon} >
                 <Popup>
                   A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>
