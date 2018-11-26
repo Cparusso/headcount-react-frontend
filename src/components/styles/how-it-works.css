@@ -1,12 +1,13 @@
 .instructions {
+  height: 17em;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 17em;
+  align-items: center;
+  padding: 0 6em;
 }
 
 .instructionCard {
-  padding-top: 1em;
   width: 13em;
   text-align: center;
 }
