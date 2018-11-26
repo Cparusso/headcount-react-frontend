@@ -9,7 +9,7 @@ class MissionSection extends Component {
       <div className='section-container'>
         <div className='blurb'>
           <div className='image'>
-            <img src={childrensHosiptal}/>
+            <img src={childrensHosiptal} alt='childrens-hospital'/>
           </div>
           <div className='content'>
             <h2>Business Focus Header</h2>
@@ -18,7 +18,7 @@ class MissionSection extends Component {
         </div>
         <div className='blurb'>
           <div className='image'>
-            <img src={animalShelter}/>
+            <img src={animalShelter} alt='animal-shelter'/>
           </div>
           <div className='content'>
             <h2>User Focus Header</h2>

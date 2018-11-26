@@ -14,7 +14,7 @@ class Footer extends Component {
           </NavLink>
           <button className='log-or-sign-in-footer'>Sign Up</button>
         </div>
-        <img className='footer-links' src={footerLinks} />
+        <img className='footer-links' src={footerLinks} alt='footer-links'/>
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './styles/event-map.css'
 
-import iconPin from '../images/hc-icon.svg'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -19,11 +18,11 @@ let myIcon = L.icon({
 class EventMap extends Component {
   state = {
     location: {
-      lat: 40.705373,
-      lng: -74.013874
+      lat: 10.705373,
+      lng: -34.013874
     },
     haveUserLocation: false,
-    zoom: 1,
+    zoom: 1.3,
   }
 
   componentDidMount() {
