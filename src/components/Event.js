@@ -6,11 +6,11 @@ class Event extends Component {
 
   render() {
     const { eventInfo } = this.props
-    // BusinessEvent.first.business.name
+    debugger
     return (
       <div>
-        <h2>{eventInfo.title}</h2>
-        <h3>{eventInfo.about}</h3>
+        <h2>{eventInfo[0].title}</h2>
+        <h3>{eventInfo[0].about}</h3>
         <img src={uncommitted} alt='uncommitted-icon' />
       </div>
     );
