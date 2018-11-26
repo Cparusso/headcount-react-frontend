@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="32px" viewBox="0 0 23 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>hc icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-129.000000, -938.000000)">
+            <g id="hc-icon" transform="translate(129.000000, 938.000000)">
+                <g>
+                    <path d="M11.4046435,-1.77635684e-15 C26.6108347,-1.77635684e-15 26.6108347,10.4064611 11.4046435,31.2193834 C-3.80154782,10.4064611 -3.80154782,-6.21007564e-16 11.4046435,-1.77635684e-15 Z" id="Path-8" fill="#E74C3C"></path>
+                    <text id="hc" fill="#ECF0F1" font-family="AvenirNext-DemiBold, Avenir Next" font-size="12" font-weight="500">
+                        <tspan x="5" y="17">hc</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
