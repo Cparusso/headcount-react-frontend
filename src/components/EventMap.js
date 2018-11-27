@@ -33,7 +33,7 @@ class EventMap extends Component {
           lng: position.coords.longitude
         },
         haveUserLocation: true,
-        zoom: 15
+        zoom: 14
       })
     }, () => {
       fetch('https://ipapi.co/json')

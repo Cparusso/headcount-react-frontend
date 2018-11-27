@@ -2,3 +2,10 @@
   /* display: flex; */
   /* justify-content: space-between; */
 }
+
+.event {
+  border: 0.1em solid black;
+  margin-bottom: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+}

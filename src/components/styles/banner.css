@@ -4,7 +4,13 @@
   align-items: center;
   height: 21em;
   width: 100%;
-  background-color: #1abc9c;
+  background-color: #a9d3e0;
+  /* background-color: #1abc9c; */
+  background-image: url('../../images/world-map.jpg');
+  /* background-size: contain; */
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: no-repeat; */
 }
 
 .banner-buttons {
@@ -16,9 +22,9 @@
 }
 
 .banner-container h1{
-  margin-top: 1.5em;
-  margin-bottom: 0.2em;
-  font-size: 3em;
+  margin-top: 1em;
+  margin-bottom: 0em;
+  font-size: 4em;
 }
 
 .log-or-sign-in {

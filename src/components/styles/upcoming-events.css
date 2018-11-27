@@ -1,9 +1,13 @@
 #event-container {
   height: 30em;
   overflow-y: hidden;
+  padding: 0 1em;
+  border: 0.1em solid black;
+  border-radius: 0.3em;
 }
 
 #events {
   height: 25em;
   overflow-y: scroll;
+  border-radius: 0.2em;
 }

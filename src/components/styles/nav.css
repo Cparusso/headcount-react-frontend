@@ -7,6 +7,10 @@
   justify-content: space-between;
   padding: 0 1em;
   height: 3.9em;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 5000;
 }
 
 .nav h1 {
@@ -21,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   width: 14em;
+  margin-right: 3em;
 }
 
 .right .navlink:hover {

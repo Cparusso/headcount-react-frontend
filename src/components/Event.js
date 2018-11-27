@@ -3,15 +3,33 @@ import uncommitted from '../images/uncommitted.svg'
 import './styles/event.css'
 
 class Event extends Component {
+  state = {
+    committed: false
+  }
+
+  commitToEvent = (eventInfo) => {
+    fetch('http://localhost:4000/user_events', {
+      method: "POST",
+      headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+      body: JSON.stringify({
+        user_id: 1,
+        event_id: eventInfo.id
+      })
+    })
+  }
 
   render() {
-    const { eventInfo } = this.props
-    debugger
+    const { eventInfo, businessInfo } = this.props
+
     return (
-      <div>
-        <h2>{eventInfo[0].title}</h2>
-        <h3>{eventInfo[0].about}</h3>
-        <img src={uncommitted} alt='uncommitted-icon' />
+      <div className='event'>
+        <h2>{businessInfo.name}</h2>
+        <h2>{eventInfo.title}</h2>
+        <h3>{eventInfo.about}</h3>
+        <img onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt='uncommitted-icon' />
       </div>
     );
   }
