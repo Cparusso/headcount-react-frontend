@@ -22,7 +22,7 @@ class Event extends Component {
   }
 
   render() {
-    const { eventInfo, businessInfo } = this.props
+    const { eventInfo, businessInfo, userEvents } = this.props
 
     return (
       <div className='event'>

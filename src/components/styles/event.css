@@ -4,8 +4,9 @@
 }
 
 .event {
-  border: 0.1em solid black;
+  border-bottom: 0.05em solid black;
   margin-bottom: 1em;
-  padding-left: 1em;
-  padding-bottom: 1em;
+  padding: 0.1em 0em 1em 1em;
+  background-color: white;
+  border-radius: 0.3em;
 }

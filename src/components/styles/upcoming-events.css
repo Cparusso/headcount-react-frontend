@@ -1,13 +1,16 @@
 #event-container {
-  height: 30em;
+  height: 29em;
   overflow-y: hidden;
-  padding: 0 1em;
-  border: 0.1em solid black;
+  padding: 0 1em 1em 1em;
+  background-color: #1abc9c;
   border-radius: 0.3em;
 }
 
+#event-container h1 {
+  color: #ecf0f1;
+}
+
 #events {
-  height: 25em;
+  height: 24em;
   overflow-y: scroll;
-  border-radius: 0.2em;
 }

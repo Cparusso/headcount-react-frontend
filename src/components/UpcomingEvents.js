@@ -5,42 +5,10 @@ import Event from './Event'
 let currentBusinesses = []
 
 class UpcomingEvents extends Component {
-  state = {
-    upcomingEvents: [],
-    businessEvents: [],
-    businesses: [],
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:4000/events')
-    .then(resp => resp.json())
-    .then(eventsJSON => {
-      this.setState({
-        upcomingEvents: eventsJSON
-      })
-    })
-
-    fetch('http://localhost:4000/business_events')
-    .then(resp => resp.json())
-    .then(eventsJSON => {
-      this.setState({
-        businessEvents: eventsJSON
-      })
-    })
-
-    fetch('http://localhost:4000/businesses')
-    .then(resp => resp.json())
-    .then(eventsJSON => {
-      this.setState({
-        businesses: eventsJSON
-      })
-    })
-  }
-
   // Iterate through all the businesses. For each of them create an array of businessEvents that are associated with the business.
   getBusinessEventsGroupedByBusiness = (businessesArr) => {
     return businessesArr.map(business => {
-      return this.state.businessEvents.filter(businessEvent => {
+      return this.props.businessEvents.filter(businessEvent => {
         if (businessEvent.business_id === business.id){
           if (!currentBusinesses.includes(business)) {
             currentBusinesses.push(business)
@@ -55,7 +23,7 @@ class UpcomingEvents extends Component {
   getEventsGroupedByBusiness = (businessEventsArr) => {
     return businessEventsArr.map(business => {
       return business.map(businessEvent => {
-        return this.state.upcomingEvents.filter(upcomingEvent => {
+        return this.props.allEvents.filter(upcomingEvent => {
           if(upcomingEvent.id === businessEvent.event_id) {
             return upcomingEvent
           }
@@ -74,37 +42,69 @@ class UpcomingEvents extends Component {
   // If there is a match we need to go through all the businesses. For each business we will need to see if the id is the same as the business_id of the currentBusinessEvent that was passed down to this function.
   // If it is I want to return that business
   findBusinessInfo = (currentEvent) => {
-    let currentBusinessEvent = this.state.businessEvents.filter(businessEvent => {
+    let currentBusinessEvent = this.props.businessEvents.filter(businessEvent => {
       if (businessEvent.event_id === currentEvent.id) {
         return businessEvent
       }
     })
 
-    return this.state.businesses.filter(business => {
+    return this.props.businesses.filter(business => {
       if (currentBusinessEvent[0].business_id === business.id) {
         return business
       }
     })
   }
 
-  renderEvents = () => {
-    let businessEventsGroupedByBusiness = this.getBusinessEventsGroupedByBusiness(this.state.businesses)
-    let eventsGroupedByBusiness = this.getEventsGroupedByBusiness(businessEventsGroupedByBusiness)
-    let narrowedDownEventsList = this.narrowDownEventsList(eventsGroupedByBusiness)
+  findUsersEvents = (currentUsersUserEvents) => {
+    return currentUsersUserEvents.map(userEvent => {
+      console.log(userEvent);
+      return this.props.allEvents.find(currentEvent => {
+        if (currentEvent.id === userEvent.event_id) {
+          console.log(currentEvent);
+          return currentEvent
+        }
+      })
+    })
+  }
 
-    return (narrowedDownEventsList.map(businessEvent => {
-      let currentBusinessInfo = this.findBusinessInfo(businessEvent)
-      return (<Event eventInfo={businessEvent} businessInfo={currentBusinessInfo[0]} />)
-    }))
+  renderEvents = (presentPage) => {
+    let businessEventsGroupedByBusiness = this.getBusinessEventsGroupedByBusiness(this.props.businesses)
+    let eventsGroupedByBusiness = this.getEventsGroupedByBusiness(businessEventsGroupedByBusiness)
+
+    switch(presentPage) {
+      case 'search':
+        let oneEventPerBusiness = this.narrowDownEventsList(eventsGroupedByBusiness)
+
+        return (oneEventPerBusiness.map(businessEvent => {
+          let currentBusinessInfo = this.findBusinessInfo(businessEvent)
+          return (<Event eventInfo={businessEvent} userEvents={this.props.userEvents} businessInfo={currentBusinessInfo[0]} />)
+        }))
+
+        break;
+      case 'user':
+        let currentUsersUserEvents = this.props.userEvents.filter(userEvent => userEvent.user_id === 1)
+        let currentUsersEvents = this.findUsersEvents(currentUsersUserEvents)
+
+        console.log(currentUsersEvents);
+        return (currentUsersEvents.map(usersEvent => {
+          let currentBusinessInfo = this.findBusinessInfo(usersEvent)
+          return (<Event eventInfo={usersEvent} userEvents={this.props.userEvents} businessInfo={currentBusinessInfo[0]} />)
+        }))
+
+        break;
+      default:
+        console.log('default')
+    }
   }
 
   render() {
-    const { upcomingEvents, businessEvents, businesses } = this.state
+    const { userEvents, allEvents, businessEvents, businesses, presentPage } = this.props
+
     return (
       <div id='event-container'>
         <h1>Upcoming Events</h1>
         <div id='events'>
-          { !businesses.length > 0 || !upcomingEvents.length > 0 || !businessEvents.length > 0 ? null : this.renderEvents() }
+          { !userEvents.length > 0 || !businesses.length > 0 || !allEvents.length > 0 || !businessEvents.length > 0 ? null : this.renderEvents(presentPage) }
         </div>
       </div>
     );

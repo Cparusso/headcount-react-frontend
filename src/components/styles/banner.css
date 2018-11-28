@@ -4,13 +4,14 @@
   align-items: center;
   height: 21em;
   width: 100%;
-  background-color: #a9d3e0;
-  /* background-color: #1abc9c; */
-  background-image: url('../../images/world-map.jpg');
+  /* background-color: #a9d3e0; */
+  background-color: #1abc9c;
+  /* background-image: url('../../images/world-map.jpg'); */
   /* background-size: contain; */
   background-size: cover;
   background-position: center;
   /* background-repeat: no-repeat; */
+  color: #ecf0f1;
 }
 
 .banner-buttons {

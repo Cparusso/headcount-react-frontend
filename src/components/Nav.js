@@ -18,7 +18,7 @@ class Nav extends Component {
         <div className='right'>
           <NavLink className='navlink' to='/search'>Search</NavLink>
           <NavLink className='navlink' to='/about'>About</NavLink>
-          <NavLink className='navlink' to='/home'>Contact</NavLink>
+          <NavLink className='navlink' to='/contact'>Contact</NavLink>
         </div>
       </div>
     );

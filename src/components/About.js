@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import './styles/about.css'
 
 class About extends Component {
   render() {
     return (
-      <div>
-        <h1>ABOUT</h1>
+      <div className='about-container'>
+        <h1>About Headcount</h1>
+        <p>(coming soon)</p>
       </div>
     );
   }

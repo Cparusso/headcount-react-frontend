@@ -7,12 +7,13 @@ import './styles/search.css'
 class Search extends Component {
   render() {
     // will need to send the selected event's info down to the HighlightedEvent - it should initially load the next event that is happening in the area
-
+    const { userEvents, allEvents, businessEvents, businesses, presentPage } = this.props
     return (
+
       <div>
         <div className='event-section'>
           <EventMap />
-          <UpcomingEvents />
+          <UpcomingEvents presentPage={presentPage} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />
         </div>
         <HighlightedEvent />
       </div>
