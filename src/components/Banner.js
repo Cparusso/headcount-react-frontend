@@ -14,7 +14,9 @@ class Banner extends Component {
             <NavLink className='navlink' to='/user'>
               <button className='log-or-sign-in'>Log In</button>
             </NavLink>
-            <button className='log-or-sign-in'>Sign Up</button>
+            <NavLink className='navlink' to='/business'>
+              <button className='log-or-sign-in'>Sign Up</button>
+            </NavLink>
           </div>
         </div>
       </div>

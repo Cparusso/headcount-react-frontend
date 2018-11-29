@@ -57,10 +57,18 @@ class UpcomingEvents extends Component {
 
   findUsersEvents = (currentUsersUserEvents) => {
     return currentUsersUserEvents.map(userEvent => {
-      console.log(userEvent);
       return this.props.allEvents.find(currentEvent => {
         if (currentEvent.id === userEvent.event_id) {
-          console.log(currentEvent);
+          return currentEvent
+        }
+      })
+    })
+  }
+
+  findBusinessesEvents = (currentBusinessesBusinessEvents) => {
+    return currentBusinessesBusinessEvents.map(businessEvent => {
+      return this.props.allEvents.find(currentEvent => {
+        if (currentEvent.id === businessEvent.event_id) {
           return currentEvent
         }
       })
@@ -77,7 +85,7 @@ class UpcomingEvents extends Component {
 
         return (oneEventPerBusiness.map(businessEvent => {
           let currentBusinessInfo = this.findBusinessInfo(businessEvent)
-          return (<Event eventInfo={businessEvent} userEvents={this.props.userEvents} businessInfo={currentBusinessInfo[0]} />)
+          return (<Event fetchUsers={this.props.fetchUsers} eventInfo={businessEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} />)
         }))
 
         break;
@@ -85,20 +93,30 @@ class UpcomingEvents extends Component {
         let currentUsersUserEvents = this.props.userEvents.filter(userEvent => userEvent.user_id === 1)
         let currentUsersEvents = this.findUsersEvents(currentUsersUserEvents)
 
-        console.log(currentUsersEvents);
         return (currentUsersEvents.map(usersEvent => {
           let currentBusinessInfo = this.findBusinessInfo(usersEvent)
-          return (<Event eventInfo={usersEvent} userEvents={this.props.userEvents} businessInfo={currentBusinessInfo[0]} />)
+          return (<Event eventInfo={usersEvent} userEvents={currentUsersEvents} businessInfo={currentBusinessInfo[0]} />)
         }))
 
         break;
+        case 'business':
+        let currentBusinessesBusinessEvents = this.props.businessEvents.filter(businessEvent => businessEvent.business_id === 1)
+        let currentBusinessesEvents = this.findBusinessesEvents(currentBusinessesBusinessEvents)
+
+        return (currentBusinessesEvents.map(businessEvent => {
+          let currentBusinessInfo = this.findBusinessInfo(businessEvent)
+          return (<Event eventInfo={businessEvent} userEvents={this.props.userEvents} businessInfo={currentBusinessInfo[0]} />)
+        }))
+
+          break;
       default:
-        console.log('default')
+        console.log('default case')
+        break;
     }
   }
 
   render() {
-    const { userEvents, allEvents, businessEvents, businesses, presentPage } = this.props
+    const { userEvents, allEvents, businessEvents, businesses, presentPage, usersEvents,  fetchUsers } = this.props
 
     return (
       <div id='event-container'>

@@ -5,16 +5,34 @@ import Nav from './components/Nav'
 import Home from './components/Home'
 import Search from './components/Search'
 import User from './components/User'
+import Business from './components/Business'
 import About from './components/About'
 import Contact from './components/Contact'
 import Error from './components/Error'
 
 class App extends Component {
-  state = {
-    allEvents: [],
-    businessEvents: [],
-    businesses: [],
-    userEvents: [],
+  constructor(props) {
+    super(props)
+    this.state = {
+      allEvents: [],
+      businessEvents: [],
+      businesses: [],
+      userEvents: [],
+      usersEvents: [],
+    }
+  }
+
+  fetchUsers = () => {
+    fetch('http://localhost:4000/users/1')
+    .then(resp => resp.json())
+    .then(usersEvents => {
+      this.setState({
+        usersEvents: usersEvents.events
+      })
+    })
+    // this.setState({
+    //   usersEvents: [...this.state.usersEvents, newEvent]
+    // }, () => console.log('%c state:', 'color: purple', this.state.usersEvents))
   }
 
   componentDidMount() {
@@ -23,6 +41,14 @@ class App extends Component {
     .then(allEvents => {
       this.setState({
         allEvents
+      })
+    })
+
+    fetch('http://localhost:4000/users/1')
+    .then(resp => resp.json())
+    .then(usersEvents => {
+      this.setState({
+        usersEvents: usersEvents.events
       })
     })
 
@@ -52,15 +78,16 @@ class App extends Component {
   }
 
   render() {
-    const { userEvents, allEvents, businessEvents, businesses } = this.state
+    const { userEvents, allEvents, businessEvents, businesses, usersEvents } = this.state
 
     return (
       <BrowserRouter>
         <Nav />
         <Switch>
           <Route path='/home' component={Home} />
-          <Route path='/search' render={() => <Search presentPage='search' userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
-          <Route path='/user' render={() => <User presentPage='user' userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
+          <Route path='/search' render={() => <Search fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
+          <Route path='/user' render={() => <User presentPage='user' usersEvents={usersEvents} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
+          <Route path='/business' render={() => <Business presentPage='business' usersEvents={usersEvents} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} /> />
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route component={Error} />
