@@ -4,12 +4,12 @@ import './styles/business.css'
 
 class Business extends Component {
   render() {
-    const { userEvents, allEvents, businessEvents, businesses, presentPage } = this.props
+    const { userEvents, usersEvents, allEvents, businessEvents, businesses, presentPage, fetchUsers } = this.props
 
     return (
       <div className='user-container'>
         <h1>Charlie's Place</h1>
-        <UpcomingEvents presentPage={presentPage} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />
+        <UpcomingEvents fetchUsers={fetchUsers} presentPage={presentPage} userEvents={userEvents} usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />
       </div>
     );
   }

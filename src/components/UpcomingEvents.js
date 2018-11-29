@@ -95,7 +95,7 @@ class UpcomingEvents extends Component {
 
         return (currentUsersEvents.map(usersEvent => {
           let currentBusinessInfo = this.findBusinessInfo(usersEvent)
-          return (<Event eventInfo={usersEvent} userEvents={currentUsersEvents} businessInfo={currentBusinessInfo[0]} />)
+          return (<Event fetchUsers={this.props.fetchUsers} eventInfo={usersEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} />)
         }))
 
         break;
@@ -105,7 +105,7 @@ class UpcomingEvents extends Component {
 
         return (currentBusinessesEvents.map(businessEvent => {
           let currentBusinessInfo = this.findBusinessInfo(businessEvent)
-          return (<Event eventInfo={businessEvent} userEvents={this.props.userEvents} businessInfo={currentBusinessInfo[0]} />)
+          return (<Event fetchUsers={this.props.fetchUsers} eventInfo={businessEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} />)
         }))
 
           break;

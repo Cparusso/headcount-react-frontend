@@ -5,10 +5,6 @@ import { NavLink } from 'react-router-dom'
 import './styles/event.css'
 
 class Event extends Component {
-  state = {
-    committed: false
-  }
-
   commitToEvent = (eventInfo) => {
     fetch('http://localhost:4000/user_events', {
       method: "POST",
@@ -26,7 +22,6 @@ class Event extends Component {
   }
 
   checkCommitment = (eventInfo, usersEvents) => {
-    // debugger
     if (usersEvents.find(event => event.id === eventInfo.id)) {
       return (
         <img className='commitment-image' src={committed} alt={'committed-icon'} />
@@ -41,7 +36,6 @@ class Event extends Component {
   render() {
 
     const { eventInfo, businessInfo, usersEvents } = this.props
-    console.log(usersEvents)
 
     return (
       <div className='event'>
