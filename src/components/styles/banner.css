@@ -4,14 +4,15 @@
   align-items: center;
   height: 21em;
   width: 100%;
-  /* background-color: #a9d3e0; */
   background-color: #1abc9c;
-  /* background-image: url('../../images/world-map.jpg'); */
-  /* background-size: contain; */
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.7)
+    ), url('../../images/green-world-map.png');
   background-size: cover;
   background-position: center;
-  /* background-repeat: no-repeat; */
-  color: #ecf0f1;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 .banner-buttons {
@@ -35,12 +36,19 @@
   font-weight: 700;
   border-radius: 3px;
   background-color: #E74C3C;
-  color: #ecf0f1;
-  border: solid #979797 0.1em;
+  color: white;
+  border: none;
   box-shadow: 0em 0.2em 0.6em #00000090, #00000050 0em 0.1em 0.2em inset;
 }
 
 .log-or-sign-in:active {
   box-shadow: 0em 0em 0em #00000090, #00000050 0em 0em 0em inset;
   margin-top: 0.1em;
+}
+
+.image-overlay {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
 }

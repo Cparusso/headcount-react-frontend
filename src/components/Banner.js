@@ -6,7 +6,7 @@ class Banner extends Component {
 
   render() {
     return (
-      <div>
+      <div className='image-overlay'>
         <div className='banner-container'>
           <h1>headcount</h1>
           <h4>Helping you help others</h4>

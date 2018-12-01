@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import EventMap from './EventMap'
+import NewEventMap from './NewEventMap'
 import UpcomingEvents from './UpcomingEvents'
 import HighlightedEvent from './HighlightedEvent'
 import './styles/search.css'
@@ -13,7 +14,7 @@ class Search extends Component {
 
       <div>
         <div className='event-section'>
-          <EventMap />
+          <NewEventMap />
           <UpcomingEvents fetchUsers={fetchUsers} usersEvents={usersEvents} presentPage={presentPage} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />
         </div>
         <HighlightedEvent />

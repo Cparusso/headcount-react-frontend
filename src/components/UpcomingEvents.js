@@ -90,10 +90,7 @@ class UpcomingEvents extends Component {
 
         break;
       case 'user':
-        let currentUsersUserEvents = this.props.userEvents.filter(userEvent => userEvent.user_id === 1)
-        let currentUsersEvents = this.findUsersEvents(currentUsersUserEvents)
-
-        return (currentUsersEvents.map(usersEvent => {
+        return (this.props.usersEvents.map(usersEvent => {
           let currentBusinessInfo = this.findBusinessInfo(usersEvent)
           return (<Event fetchUsers={this.props.fetchUsers} eventInfo={usersEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} />)
         }))
@@ -122,7 +119,7 @@ class UpcomingEvents extends Component {
       <div id='event-container'>
         <h1>Upcoming Events</h1>
         <div id='events'>
-          { !userEvents.length > 0 || !businesses.length > 0 || !allEvents.length > 0 || !businessEvents.length > 0 ? null : this.renderEvents(presentPage) }
+          { !usersEvents.length > 0 || !businesses.length > 0 || !allEvents.length > 0 || !businessEvents.length > 0 ? null : this.renderEvents(presentPage) }
         </div>
       </div>
     );

@@ -7,7 +7,6 @@ import 'leaflet/dist/leaflet.css'
 
 import icon from '../images/hc-icon.svg'
 
-
 let myIcon = L.icon({
   iconUrl: icon,
   iconSize: [38, 95],

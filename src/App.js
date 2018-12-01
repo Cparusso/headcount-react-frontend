@@ -17,7 +17,6 @@ class App extends Component {
       allEvents: [],
       businessEvents: [],
       businesses: [],
-      userEvents: [],
       usersEvents: [],
     }
   }
@@ -30,9 +29,6 @@ class App extends Component {
         usersEvents: usersEvents.events
       })
     })
-    // this.setState({
-    //   usersEvents: [...this.state.usersEvents, newEvent]
-    // }, () => console.log('%c state:', 'color: purple', this.state.usersEvents))
   }
 
   componentDidMount() {
@@ -49,14 +45,6 @@ class App extends Component {
     .then(usersEvents => {
       this.setState({
         usersEvents: usersEvents.events
-      })
-    })
-
-    fetch('http://localhost:4000/user_events')
-    .then(resp => resp.json())
-    .then(userEvents => {
-      this.setState({
-        userEvents
       })
     })
 
@@ -78,16 +66,16 @@ class App extends Component {
   }
 
   render() {
-    const { userEvents, allEvents, businessEvents, businesses, usersEvents } = this.state
+    const { allEvents, businessEvents, businesses, usersEvents } = this.state
 
     return (
       <BrowserRouter>
         <Nav />
         <Switch>
           <Route path='/home' component={Home} />
-          <Route path='/search' render={() => <Search fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
-          <Route path='/user' render={() => <User presentPage='user' usersEvents={usersEvents} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
-          <Route path='/business' render={() => <Business presentPage='business' usersEvents={usersEvents} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} /> />
+          <Route path='/search' render={() => <Search fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
+          <Route path='/user' render={() => <User fetchUsers={this.fetchUsers} presentPage='user' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
+          <Route path='/business' render={() => <Business fetchUsers={this.fetchUsers} presentPage='business' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} /> />
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route component={Error} />
