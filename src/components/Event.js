@@ -42,9 +42,14 @@ class Event extends Component {
         <NavLink className='navlink' to='/business'>
           <h2 className='business-link' >{businessInfo.name}</h2>
         </NavLink>
-        <h2>{eventInfo.title}</h2>
-        <h3>{eventInfo.about}</h3>
-        {usersEvents ? this.checkCommitment(eventInfo, usersEvents): <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}
+        <h4 className='event-title'>{eventInfo.title}</h4>
+        <div className='event-info-section'>
+          <p>{eventInfo.about}</p>
+          <div className='time-and-commit'>
+            <p>3:00</p>
+            {usersEvents ? this.checkCommitment(eventInfo, usersEvents): <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}
+          </div>
+        </div>
       </div>
     );
   }

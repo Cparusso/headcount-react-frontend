@@ -4,15 +4,58 @@
 }
 
 .event {
-  border-bottom: 0.05em solid black;
-  margin-bottom: 1em;
+  border-bottom: 0.05em solid #e6e6e6;
+  border-top: 0.05em solid #e6e6e6;
+  margin-bottom: -0.1em;
   padding: 0.1em 0em 1em 1em;
-  background-color: white;
-  border-radius: 0.3em;
 }
 
 .business-link {
   color: black;
+  margin-top: 0.3em;
+
+  animation: uncolor-link 0.8s;
+}
+
+.business-link:hover {
+  animation: color-link 0.2s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes color-link {
+  from {
+    color: black;
+  }
+  to {
+    color: #1abc9c;
+  }
+}
+
+@keyframes uncolor-link {
+  from {
+    color: #1abc9c;
+  }
+  to {
+    color: black;
+  }
+}
+
+.event-title {
+  margin-top: -1em;
+  margin-bottom: -0.5em;
+}
+
+.event-info-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+
+.time-and-commit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .commitment-image {

@@ -2,12 +2,13 @@
   height: 29em;
   overflow-y: hidden;
   padding: 0 1em 1em 1em;
-  background-color: #1abc9c;
-  border-radius: 0.3em;
+  /* background-color: #1abc9c; */
+  /* border-radius: 0.3em; */
 }
 
 #event-container h1 {
-  color: #fefefe;
+  /* color: #fefefe; */
+  margin-top: 0;
 }
 
 #events {

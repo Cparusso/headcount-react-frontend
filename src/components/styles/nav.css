@@ -26,6 +26,7 @@
   justify-content: space-between;
   width: 14em;
   margin-right: 3em;
+  font-size: 1.3em;
 }
 
 .right .navlink:hover {
