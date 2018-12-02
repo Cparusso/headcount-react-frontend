@@ -29,12 +29,36 @@
   font-size: 1.3em;
 }
 
+.right .navlink {
+  animation: uncolor-nav-link 0.8s;
+}
 .right .navlink:hover {
-  margin: 0em -0.3em;
+  /* margin: 0em -0.3em;
   padding-left: 0.2em;
   padding-right: 0.2em;
   border-left: 0.1em solid #1abc9c;
-  border-right: 0.1em solid #1abc9c;
+  border-right: 0.1em solid #1abc9c; */
+
+  animation: color-nav-link 0.2s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes color-nav-link {
+  from {
+    color: white;
+  }
+  to {
+    color: black;
+  }
+}
+
+@keyframes uncolor-nav-link {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
 }
 
 .left {

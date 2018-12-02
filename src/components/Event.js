@@ -44,7 +44,7 @@ class Event extends Component {
         </NavLink>
         <h4 className='event-title'>{eventInfo.title}</h4>
         <div className='event-info-section'>
-          <p>{eventInfo.about}</p>
+          <p>{eventInfo.about.length < 20 ? eventInfo.about : `${eventInfo.about.slice(0, 150)}...`}</p>
           <div className='time-and-commit'>
             <p>3:00</p>
             {usersEvents ? this.checkCommitment(eventInfo, usersEvents): <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}

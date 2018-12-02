@@ -50,6 +50,11 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: 0.8em;
+  align-items: baseline;
+}
+
+.event-info-section > p {
+  width: 17.3em;
 }
 
 .time-and-commit {
