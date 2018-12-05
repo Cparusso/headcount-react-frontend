@@ -11,10 +11,10 @@ class Banner extends Component {
           <h1>headcount</h1>
           <h4>Helping you help others</h4>
           <div className='banner-buttons'>
-            <NavLink className='navlink' to='/user'>
+            <NavLink className='navlink' to='/login'>
               <button className='log-or-sign-in'>Log In</button>
             </NavLink>
-            <NavLink className='navlink' to='/business'>
+            <NavLink className='navlink' to='/signup'>
               <button className='log-or-sign-in'>Sign Up</button>
             </NavLink>
           </div>

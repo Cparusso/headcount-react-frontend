@@ -6,6 +6,8 @@ import Home from './components/Home'
 import Search from './components/Search'
 import User from './components/User'
 import Business from './components/Business'
+import LogIn from './components/LogIn'
+import SignUp from './components/SignUp'
 import About from './components/About'
 import Contact from './components/Contact'
 import Error from './components/Error'
@@ -18,21 +20,48 @@ class App extends Component {
       businessEvents: [],
       businesses: [],
       usersEvents: [],
+      currentUser: {},
+      currentBusiness: {},
+      jwt: '',
+      highlight: {},
     }
   }
 
-  fetchUsers = () => {
-    fetch('http://localhost:4000/users/1')
+  signIn = (jwt, user) => {
+    this.getSessionData()
+    this.setState({
+      jwt: jwt,
+      currentUser: user
+    }, this.fetchUsers(this.state.currentUser))
+  }
+
+  fetchUsers = (currentUser) => {
+    console.log(currentUser)
+    fetch(`http://localhost:4000/users/${currentUser.id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${this.state.jwt}`
+      },
+    })
     .then(resp => resp.json())
     .then(usersEvents => {
-      this.setState({
-        usersEvents: usersEvents.events
-      })
+      if (usersEvents) {
+        this.setState({
+          usersEvents: usersEvents.events
+        })
+      }
     })
   }
 
-  componentDidMount() {
-    fetch('http://localhost:4000/events')
+  getSessionData = () => {
+    fetch('http://localhost:4000/events', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${this.state.jwt}`
+      },
+    })
     .then(resp => resp.json())
     .then(allEvents => {
       this.setState({
@@ -40,15 +69,13 @@ class App extends Component {
       })
     })
 
-    fetch('http://localhost:4000/users/1')
-    .then(resp => resp.json())
-    .then(usersEvents => {
-      this.setState({
-        usersEvents: usersEvents.events
-      })
+    fetch('http://localhost:4000/business_events', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${this.state.jwt}`
+      },
     })
-
-    fetch('http://localhost:4000/business_events')
     .then(resp => resp.json())
     .then(businessEvents => {
       this.setState({
@@ -56,26 +83,47 @@ class App extends Component {
       })
     })
 
-    fetch('http://localhost:4000/businesses')
+    fetch('http://localhost:4000/businesses', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${this.state.jwt}`
+      },
+    })
     .then(resp => resp.json())
     .then(businesses => {
       this.setState({
         businesses
-      })
+      }, () => console.log(this.state.businesses))
     })
   }
 
+  updateCurrentBusiness = (currentBusiness) => {
+    this.setState({
+      currentBusiness
+    })
+  }
+
+
+    setHighlight = (highlight) => {
+      this.setState({
+        highlight
+      }, () => console.log(this.state.highlight))
+    }
+
   render() {
-    const { allEvents, businessEvents, businesses, usersEvents } = this.state
+    const { allEvents, businessEvents, businesses, usersEvents, currentUser, jwt, currentBusiness } = this.state
 
     return (
       <BrowserRouter>
-        <Nav />
+        <Nav currentUser={currentUser} />
         <Switch>
           <Route path='/home' component={Home} />
-          <Route path='/search' render={() => <Search fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
-          <Route path='/user' render={() => <User fetchUsers={this.fetchUsers} presentPage='user' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
-          <Route path='/business' render={() => <Business fetchUsers={this.fetchUsers} presentPage='business' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} /> />
+          <Route path='/search' render={() => <Search setHighlight={this.setHighlight} updateCurrentBusiness={this.updateCurrentBusiness} currentUser={currentUser} fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} jwt={jwt} />} />
+          <Route path='/user' render={() => <User setHighlight={this.setHighlight} currentUser={currentUser} jwt={jwt} fetchUsers={this.fetchUsers} presentPage='user' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
+          <Route path='/business' render={() => <Business currentBusiness={currentBusiness} fetchUsers={this.fetchUsers} presentPage='business' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} currentUser={currentUser} />} />
+          <Route path='/login' render={() => <LogIn signIn={this.signIn} />} />
+          <Route path='/signup' render={() => <SignUp signIn={this.signIn} />} />
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route component={Error} />

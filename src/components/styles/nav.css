@@ -23,13 +23,14 @@
 
 .right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 14em;
   margin-right: 3em;
   font-size: 1.3em;
 }
 
 .right .navlink {
+  margin-left: 1em;
   animation: uncolor-nav-link 0.8s;
 }
 .right .navlink:hover {

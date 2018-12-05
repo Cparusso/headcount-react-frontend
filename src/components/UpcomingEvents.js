@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/upcoming-events.css'
 import Event from './Event'
-
+import HighlightedEvent from './HighlightedEvent'
 let currentBusinesses = []
 
 class UpcomingEvents extends Component {
@@ -85,24 +85,24 @@ class UpcomingEvents extends Component {
 
         return (oneEventPerBusiness.map(businessEvent => {
           let currentBusinessInfo = this.findBusinessInfo(businessEvent)
-          return (<Event fetchUsers={this.props.fetchUsers} eventInfo={businessEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} />)
+          return (<Event setHighlight={this.setHighlight} updateCurrentBusiness={this.props.updateCurrentBusiness} setHighlight={this.props.setHighlight} currentUser={this.props.currentUser} fetchUsers={this.props.fetchUsers} eventInfo={businessEvent} usersEvents={this.props.usersEvents} jwt={this.props.jwt} businessInfo={currentBusinessInfo[0]} />)
         }))
 
         break;
       case 'user':
         return (this.props.usersEvents.map(usersEvent => {
           let currentBusinessInfo = this.findBusinessInfo(usersEvent)
-          return (<Event fetchUsers={this.props.fetchUsers} eventInfo={usersEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} />)
+          return (<Event setHighlight={this.setHighlight} updateCurrentBusiness={this.props.updateCurrentBusiness} fetchUsers={this.props.fetchUsers} eventInfo={usersEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} currentUser={this.props.currentUser} jwt={this.props.jwt} />)
         }))
 
         break;
         case 'business':
-        let currentBusinessesBusinessEvents = this.props.businessEvents.filter(businessEvent => businessEvent.business_id === 1)
+        let currentBusinessesBusinessEvents = this.props.businessEvents.filter(businessEvent => businessEvent.business_id === this.props.currentBusiness.id)
         let currentBusinessesEvents = this.findBusinessesEvents(currentBusinessesBusinessEvents)
 
         return (currentBusinessesEvents.map(businessEvent => {
           let currentBusinessInfo = this.findBusinessInfo(businessEvent)
-          return (<Event fetchUsers={this.props.fetchUsers} eventInfo={businessEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} />)
+          return (<Event setHighlight={this.setHighlight} updateCurrentBusiness={this.props.updateCurrentBusiness} fetchUsers={this.props.fetchUsers} eventInfo={businessEvent} usersEvents={this.props.usersEvents} businessInfo={currentBusinessInfo[0]} currentUser={this.props.currentUser} jwt={this.props.jwt} />)
         }))
 
           break;
@@ -113,14 +113,15 @@ class UpcomingEvents extends Component {
   }
 
   render() {
-    const { userEvents, allEvents, businessEvents, businesses, presentPage, usersEvents,  fetchUsers } = this.props
+    const { userEvents, allEvents, businessEvents, businesses, presentPage, usersEvents, fetchUsers, currentUser, highlight } = this.props
 
     return (
       <div id='event-container'>
         <h1>Upcoming Events</h1>
         <div id='events'>
-          { !usersEvents.length > 0 || !businesses.length > 0 || !allEvents.length > 0 || !businessEvents.length > 0 ? null : this.renderEvents(presentPage) }
+          { !(businesses.length > 0) || !(allEvents.length > 0) || !(businessEvents.length > 0) ? null : this.renderEvents(presentPage) }
         </div>
+        {highlight ? <HighlightedEvent highlight={highlight}/> : null}
       </div>
     );
   }

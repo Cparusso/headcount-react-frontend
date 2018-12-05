@@ -16,7 +16,8 @@ class Nav extends Component {
           </NavLink>
         </div>
         <div className='right'>
-          <NavLink className='navlink' to='/search'>Search</NavLink>
+          { Object.keys(this.props.currentUser).length > 0 ? <NavLink className='navlink' to='/search'>Search</NavLink> : null }
+          { Object.keys(this.props.currentUser).length > 0 ? <NavLink className='navlink' to='/user'>Profile</NavLink> : null }
           <NavLink className='navlink' to='/about'>About</NavLink>
           <NavLink className='navlink' to='/contact'>Contact</NavLink>
         </div>

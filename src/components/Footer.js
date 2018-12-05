@@ -9,10 +9,12 @@ class Footer extends Component {
       <div id='footer-container'>
         <h1>Sign up to get started</h1>
         <div className='buttons'>
-          <NavLink className='navlink' to='/user'>
+          <NavLink className='navlink' to='/login'>
             <button className='log-or-sign-in-footer'>Log In</button>
           </NavLink>
-          <button className='log-or-sign-in-footer'>Sign Up</button>
+          <NavLink className='navlink' to='/signin'>
+            <button className='log-or-sign-in-footer'>Sign Up</button>
+          </NavLink>
         </div>
         <img className='footer-links' src={footerLinks} alt='footer-links'/>
       </div>

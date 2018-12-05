@@ -18,6 +18,7 @@ class NewEventMap extends Component {
   };
 
   dropPins = () => {
+    console.log(this.props.businesses);
     return (<Marker latitude={40.7051073} longitude={-74.01419609999999} offsetLeft={0} offsetTop={-50}>
       <img src={pin} />
     </Marker>)

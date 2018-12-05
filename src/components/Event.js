@@ -6,19 +6,23 @@ import './styles/event.css'
 
 class Event extends Component {
   commitToEvent = (eventInfo) => {
+    console.log(this.props.currentUser);
+    debugger
+    
     fetch('http://localhost:4000/user_events', {
       method: "POST",
       headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
+            'Authorization': `Bearer ${this.props.jwt}`
         },
       body: JSON.stringify({
-        user_id: 1,
+        user_id: this.props.currentUser.id,
         event_id: eventInfo.id
       })
     })
     .then(resp => resp.json())
-    .then(newEvent => this.props.fetchUsers())
+    .then(newEvent => this.props.fetchUsers(this.props.currentUser))
   }
 
   checkCommitment = (eventInfo, usersEvents) => {
@@ -34,20 +38,19 @@ class Event extends Component {
   }
 
   render() {
-
-    const { eventInfo, businessInfo, usersEvents } = this.props
+    const { eventInfo, businessInfo, usersEvents, setHighlight, currentUser, updateCurrentBusiness } = this.props
 
     return (
       <div className='event'>
         <NavLink className='navlink' to='/business'>
-          <h2 className='business-link' >{businessInfo.name}</h2>
+          <h2 onClick={() => updateCurrentBusiness(businessInfo)} className='business-link' >{businessInfo.name}</h2>
         </NavLink>
-        <h4 className='event-title'>{eventInfo.title}</h4>
+        <h4 onClick={() => setHighlight(eventInfo)} className='event-title'>{eventInfo.title}</h4>
         <div className='event-info-section'>
           <p>{eventInfo.about.length < 20 ? eventInfo.about : `${eventInfo.about.slice(0, 150)}...`}</p>
           <div className='time-and-commit'>
             <p>3:00</p>
-            {usersEvents ? this.checkCommitment(eventInfo, usersEvents): <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}
+            {usersEvents ? this.checkCommitment(eventInfo, usersEvents) : <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}
           </div>
         </div>
       </div>

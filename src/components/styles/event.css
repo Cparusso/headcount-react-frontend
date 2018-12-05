@@ -50,7 +50,7 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: 0.8em;
-  align-items: baseline;
+  align-items: flex-end;
 }
 
 .event-info-section > p {

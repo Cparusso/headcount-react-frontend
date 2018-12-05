@@ -50,6 +50,10 @@ class EventMap extends Component {
     })
   }
 
+  placePins = () => {
+    console.log(this.props.businesses);
+  }
+
   render() {
     const position = [this.state.location.lat, this.state.location.lng]
 
@@ -69,6 +73,7 @@ class EventMap extends Component {
               </Marker>
             : ''
           }
+          {this.placePins()}
         </Map>
       </div>
     );
