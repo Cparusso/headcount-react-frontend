@@ -32,7 +32,10 @@ class App extends Component {
     this.setState({
       jwt: jwt,
       currentUser: user
-    }, this.fetchUsers(this.state.currentUser))
+    }, () => {
+      this.fetchUsers(this.state.currentUser)
+      this.getSessionData()
+    })
   }
 
   fetchUsers = (currentUser) => {
@@ -104,7 +107,6 @@ class App extends Component {
     })
   }
 
-
     setHighlight = (highlight) => {
       this.setState({
         highlight
@@ -112,16 +114,16 @@ class App extends Component {
     }
 
   render() {
-    const { allEvents, businessEvents, businesses, usersEvents, currentUser, jwt, currentBusiness } = this.state
+    const { allEvents, businessEvents, businesses, usersEvents, currentUser, jwt, currentBusiness, highlight } = this.state
 
     return (
       <BrowserRouter>
         <Nav currentUser={currentUser} />
         <Switch>
-          <Route path='/home' component={Home} />
-          <Route path='/search' render={() => <Search setHighlight={this.setHighlight} updateCurrentBusiness={this.updateCurrentBusiness} currentUser={currentUser} fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} jwt={jwt} />} />
-          <Route path='/user' render={() => <User setHighlight={this.setHighlight} currentUser={currentUser} jwt={jwt} fetchUsers={this.fetchUsers} presentPage='user' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
-          <Route path='/business' render={() => <Business currentBusiness={currentBusiness} fetchUsers={this.fetchUsers} presentPage='business' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} currentUser={currentUser} />} />
+          <Route path='/home' render={() => <Home currentUser={currentUser} />} />
+          <Route path='/search' render={() => <Search highlight={highlight} setHighlight={this.setHighlight} updateCurrentBusiness={this.updateCurrentBusiness} currentUser={currentUser} fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} jwt={jwt} />} />
+          <Route path='/user' render={() => <User highlight={highlight} setHighlight={this.setHighlight} updateCurrentBusiness={this.updateCurrentBusiness} currentUser={currentUser} jwt={jwt} fetchUsers={this.fetchUsers} presentPage='user' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
+          <Route path='/business' render={() => <Business highlight={highlight} setHighlight={this.setHighlight} currentBusiness={currentBusiness} updateCurrentBusiness={this.updateCurrentBusiness} fetchUsers={this.fetchUsers} presentPage='business' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} currentUser={currentUser} />} />
           <Route path='/login' render={() => <LogIn signIn={this.signIn} />} />
           <Route path='/signup' render={() => <SignUp signIn={this.signIn} />} />
           <Route path='/about' component={About} />

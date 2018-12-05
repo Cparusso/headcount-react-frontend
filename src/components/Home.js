@@ -6,12 +6,14 @@ import Footer from './Footer'
 
 class Home extends Component {
   render() {
+    const { currentUser } = this.props
+
     return (
       <div>
-        <Banner />
+        <Banner currentUser={currentUser} />
         <HowItWorks />
         <MissionSection />
-        <Footer />
+        <Footer currentUser={currentUser} />
       </div>
     );
   }
