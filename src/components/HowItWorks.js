@@ -11,8 +11,8 @@ class HowItWorks extends Component {
       <div className='instructions'>
         <div className='instructionCard'>
           <div className='content'>
-            <h2>Search</h2>
-            <h4>Find an opportunity to help out at an organization near you</h4>
+            <h2 className='focus' >Search</h2>
+            <h4 className='focus-body' >Find an opportunity to help out at an organization near you</h4>
           </div>
           <div className='image'>
             <img src={search} alt='search-icon'/>
@@ -20,8 +20,8 @@ class HowItWorks extends Component {
         </div>
         <div className='instructionCard'>
           <div className='content'>
-            <h2>Commit</h2>
-            <h4>Commit to making a difference in your community</h4>
+            <h2 className='focus' >Commit</h2>
+            <h4 className='focus-body' >Commit to making a difference in your community</h4>
           </div>
           <div className='image'>
             <img src={committed} alt='committed-icon'/>
@@ -29,8 +29,8 @@ class HowItWorks extends Component {
         </div>
         <div className='instructionCard'>
           <div className='content'>
-            <h2>Repeat</h2>
-            <h4>Save your favorite organizations to be notified the next time they have an event</h4>
+            <h2 className='focus' >Repeat</h2>
+            <h4 className='focus-body' >Save your favorite organizations to be notified the next time they have an event</h4>
           </div>
           <div className='image'>
             <img src={repeat} alt='repeat-icon'/>

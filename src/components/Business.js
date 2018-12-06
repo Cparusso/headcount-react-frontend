@@ -10,7 +10,13 @@ class Business extends Component {
     return (
       <div>
         <div className='user-container'>
-          <h1>{currentBusiness.name}</h1>
+          <div className='about-section'>
+            <div className='about-container'>
+              <img className='about-container-img' src={currentBusiness.imageUrl} alt='business-image'/>
+              <h1>{currentBusiness.name}</h1>
+              <p>{currentBusiness.about}</p>
+            </div>
+          </div>
           <UpcomingEvents fetchUsers={fetchUsers} presentPage={presentPage} userEvents={userEvents} usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} currentBusiness={currentBusiness} currentUser={currentUser} setHighlight={setHighlight} highlight={highlight} updateCurrentBusiness={updateCurrentBusiness} />
         </div>
         <div>

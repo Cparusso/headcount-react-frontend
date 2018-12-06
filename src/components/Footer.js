@@ -26,7 +26,7 @@ class Footer extends Component {
           <h1>Get Started!</h1>
           <div className='buttons'>
             <NavLink className='navlink' to='/search'>
-              <button className='log-or-sign-in-footer'>Find an event near you</button>
+              <button className='log-or-sign-in-footer solo'>Find an event near you</button>
             </NavLink>
           </div>
           </React.Fragment>

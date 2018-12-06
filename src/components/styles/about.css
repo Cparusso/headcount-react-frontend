@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 35em;
-  padding: 0 4em;
+  /* height: 35em; */
+  padding: 0 0 0 22vw;
 }
 
 .about-container h1 {

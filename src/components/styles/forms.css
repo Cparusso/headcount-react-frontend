@@ -1,0 +1,42 @@
+.contains-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  border: 0.05em solid #00000050;
+  border-radius: 0.3em;
+  padding: 1em;
+  box-shadow: 0em 0.2em 0.6em #00000090;
+}
+
+.under-form {
+  font-size: 0.5em;
+}
+
+.log-or-sign-in-form {
+  width: 100%;
+  height: 4vh;
+  font-size: 1em;
+  text-shadow: 0.02em 0.03em 0.6em rgba(0,0,0,0.5);
+  font-weight: 700;
+  border-radius: 3px;
+  background-color: #E74C3C;
+  color: white;
+  border: none;
+  box-shadow: 0em 0.2em 0.6em #00000090;
+  outline: none;
+  margin-top: 0.5em;
+}
+
+.log-or-sign-in-form:active {
+  box-shadow: 0em 0em 0em #00000090;
+  margin-top: 0.1em;
+  outline: none;
+}

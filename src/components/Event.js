@@ -6,9 +6,6 @@ import './styles/event.css'
 
 class Event extends Component {
   commitToEvent = (eventInfo) => {
-    console.log(this.props.currentUser);
-    debugger
-    
     fetch('http://localhost:4000/user_events', {
       method: "POST",
       headers: {
@@ -47,9 +44,9 @@ class Event extends Component {
         </NavLink>
         <h4 onClick={() => setHighlight(eventInfo)} className='event-title'>{eventInfo.title}</h4>
         <div className='event-info-section'>
-          <p>{eventInfo.about.length < 20 ? eventInfo.about : `${eventInfo.about.slice(0, 150)}...`}</p>
+          <p>{eventInfo.about.length < 50 ? eventInfo.about : `${eventInfo.about.slice(0, 50)}...`}</p>
           <div className='time-and-commit'>
-            <p>3:00</p>
+            <p>{eventInfo.time} <br></br> {eventInfo.date}</p>
             {usersEvents ? this.checkCommitment(eventInfo, usersEvents) : <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}
           </div>
         </div>

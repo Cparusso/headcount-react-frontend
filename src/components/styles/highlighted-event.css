@@ -1,4 +1,26 @@
 .highlight-section {
   height: 21em;
+  width: 80%;
+  margin: 40vh auto 0 auto;
   background-color: #DED9D940;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3em;
+}
+
+.title {
+  margin-top: 0em;
+  font-size: 3.5em;
+}
+
+.about {
+  margin-top: -1.8em;
+  font-size: 1.5em;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

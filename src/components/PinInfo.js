@@ -9,7 +9,9 @@ export default class CityInfo extends PureComponent {
       <div>
         <div>
           <h1>{popupInfo.name}</h1>
-          <h4>{popupInfo.about}</h4>
+          <p>{popupInfo.about.slice(0, 50)}-</p>
+          <p>{popupInfo.about.slice(50, 100)}-</p>
+          <p>{popupInfo.about.slice(100, 150)}...</p>
         </div>
       </div>
     );

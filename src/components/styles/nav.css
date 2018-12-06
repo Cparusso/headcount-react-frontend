@@ -31,15 +31,9 @@
 
 .right .navlink {
   margin-left: 1em;
-  animation: uncolor-nav-link 0.8s;
+  animation: uncolor-nav-link 0.4s;
 }
 .right .navlink:hover {
-  /* margin: 0em -0.3em;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  border-left: 0.1em solid #1abc9c;
-  border-right: 0.1em solid #1abc9c; */
-
   animation: color-nav-link 0.2s;
   -webkit-animation-fill-mode: forwards;
 }

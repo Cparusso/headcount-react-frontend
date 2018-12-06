@@ -1,0 +1,20 @@
+.business-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 35em;
+  margin: 0 -4em;
+}
+
+.about-container {
+  width: 50vw;
+  margin-top: 30vh;
+  margin-right: 30vh;
+  font-size: 1.5em;
+  /* over */
+}
+
+.about-container-img {
+  width: 30vw;
+}

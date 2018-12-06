@@ -3,25 +3,26 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 21em;
+  height: 50vh;
 }
 
 #footer-container h1 {
   margin-bottom: -1em;
+  font-size: 2.8em;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 14em;
+  width: 15vw;
   margin-right: 1.4em;
 }
 
 .log-or-sign-in-footer {
-  width: 5em;
-  height: 2em;
-  font-size: 1em;
+  width: 7vw;
+  height: 3vh;
+  font-size: 1.5em;
   font-weight: 700;
   background-color: none;
   color: #E74C3C;
@@ -30,4 +31,12 @@
 
 .log-or-sign-in-footer:active {
   padding-top: 0.2em;
+}
+
+.footer-links {
+  height: 3vh;
+}
+
+.solo {
+  width: 13em;
 }

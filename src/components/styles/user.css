@@ -2,7 +2,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 35em;
-  padding: 0 4em;
+  margin: 0 6em;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 73%;
 }

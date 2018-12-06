@@ -124,8 +124,8 @@ class App extends Component {
           <Route path='/search' render={() => <Search highlight={highlight} setHighlight={this.setHighlight} updateCurrentBusiness={this.updateCurrentBusiness} currentUser={currentUser} fetchUsers={this.fetchUsers} presentPage='search' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} jwt={jwt} />} />
           <Route path='/user' render={() => <User highlight={highlight} setHighlight={this.setHighlight} updateCurrentBusiness={this.updateCurrentBusiness} currentUser={currentUser} jwt={jwt} fetchUsers={this.fetchUsers} presentPage='user' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} />} />
           <Route path='/business' render={() => <Business highlight={highlight} setHighlight={this.setHighlight} currentBusiness={currentBusiness} updateCurrentBusiness={this.updateCurrentBusiness} fetchUsers={this.fetchUsers} presentPage='business' usersEvents={usersEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} currentUser={currentUser} />} />
-          <Route path='/login' render={() => <LogIn signIn={this.signIn} />} />
-          <Route path='/signup' render={() => <SignUp signIn={this.signIn} />} />
+          <Route path='/login' render={() => <LogIn signIn={this.signIn} jwt={jwt} />} />
+          <Route path='/signup' render={() => <SignUp signIn={this.signIn} jwt={jwt} />} />
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route component={Error} />

@@ -2,14 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 21em;
+  height: 54vh;
+  /* height: 21em; */
   width: 100%;
   background-color: #1abc9c;
   background-image: linear-gradient(
-      #E74C3C,
+      #00000030,
+      #00000010,
+      #00000001,
+      #00000001,
+      #00000001,
+      #00000001,
+      #00000001,
+      #00000001,
+      #00000001,
+      #00000001,
+      #00000001,
+      #00000010,
       #00000050
-    ), url('../../images/green-world-map.png');
-  background-size: cover;
+    ), url('../../images/green-world-map.svg');
+  /* background-image: url('../../images/green-world-map.svg'); */
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   color: white;
@@ -23,26 +36,35 @@
   margin-top: 1em;
 }
 
-.banner-container h1{
-  margin-top: 1em;
-  margin-bottom: 0em;
-  font-size: 4em;
+.banner-container h1 {
+  margin-top: 12vh;
+  margin-bottom: -0.3em;
+  font-size: 10em;
+  text-shadow: 0.02em 0.03em 0.9em rgba(0,0,0,0.5);
+}
+
+.banner-container h4 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  text-shadow: 0.02em 0.03em 0.9em rgba(0,0,0,0.5);
 }
 
 .log-or-sign-in {
-  width: 6em;
-  height: 2em;
-  font-size: 0.9em;
+  width: 5vw;
+  height: 3vh;
+  font-size: 1.2em;
+  text-shadow: 0.02em 0.03em 0.6em rgba(0,0,0,0.5);
   font-weight: 700;
   border-radius: 3px;
   background-color: #E74C3C;
   color: white;
   border: none;
-  box-shadow: 0em 0.2em 0.6em #00000090, #00000050 0em 0.1em 0.2em inset;
+  box-shadow: 0em 0.2em 0.6em #00000090;
 }
 
 .log-or-sign-in:active {
-  box-shadow: 0em 0em 0em #00000090, #00000050 0em 0em 0em inset;
+  box-shadow: 0em 0em 0em #00000090;
   margin-top: 0.1em;
 }
 
@@ -51,4 +73,9 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
+}
+
+.welcome-message {
+  /* font-size: 3em; */
+  margin-top: 0.5em;
 }

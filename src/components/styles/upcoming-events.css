@@ -1,18 +1,18 @@
 #event-container {
-  height: 29em;
+  height: 73vh;
+  margin-top: 36vh;
   overflow-y: hidden;
-  padding: 0 1em 1em 1em;
-  /* background-color: #1abc9c; */
-  /* border-radius: 0.3em; */
+  padding: 0 1em 2em 1em;
+  max-width: 27.8em;
 }
 
 #event-container h1 {
-  /* color: #fefefe; */
   margin-top: 0;
-  margin-bottom: 0.4em;
+  font-size: 3em;
+  margin-bottom: 1vh;
 }
 
 #events {
-  height: 27em;
+  height: 96%;
   overflow-y: scroll;
 }

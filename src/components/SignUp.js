@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
+import './styles/forms.css'
 
 class SignUp extends Component {
 
@@ -32,9 +33,13 @@ class SignUp extends Component {
   }
 
   render() {
+    if (this.props.jwt.length) {
+      return <Redirect to='/home' />
+    }
+
     return (
-      <div>
-        <form onSubmit={(event) => this.signup(event)} >
+      <div className='contains-form'>
+        <form className='form-container' onSubmit={(event) => this.signup(event)} >
           <label>
             Name:
             <input type="text" name="name" />
@@ -55,10 +60,13 @@ class SignUp extends Component {
             imageUrl:
             <input type="text" name="imageUrl" />
           </label>
-          <input type="submit" value="Submit" />
+          <input className='log-or-sign-in-form' type="submit" value="Submit" />
         </form>
-        <p>Already have an account?</p>
-        <NavLink className='log-or-sign-in-footer navlink' to='/login'>Log in!</NavLink>
+        <div className='under-form'>
+          <NavLink className='log-or-sign-in-footer navlink' to='/login'>
+            <p>Already have an account? Log in!</p>
+          </NavLink>
+        </div>
       </div>
     );
   }

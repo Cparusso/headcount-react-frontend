@@ -7,10 +7,11 @@ class HighlightedEvent extends Component {
 
     return (
       <div className='highlight-section'>
-        <p>{highlight.title}</p>
-        <p>{highlight.about}</p>
-        <p>{highlight.date}</p>
-        <p>{highlight.time}</p>
+        <p className='title'>{highlight.title}</p>
+        <p className='about'>{highlight.about}</p>
+        <div className='date-time'>
+          <p>{highlight.time} - {highlight.date}</p>
+        </div>
       </div>
     )
   }

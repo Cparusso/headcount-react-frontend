@@ -14,10 +14,10 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoiY3BhcnVzc28iLCJhIjoiY2pwNDdhemRyMHBydDNxb2I1bDZ
 class NewEventMap extends Component {
   state = {
     viewport: {
-      width: 760,
-      height: 480,
-      latitude: 40.7051073,
-      longitude: -74.01419609999999,
+      width: 1200,
+      height: 800,
+      latitude: 40.710103,
+      longitude: -74.013930,
       zoom: 15
     },
     popupInfo: null

@@ -64,6 +64,9 @@
 }
 
 .commitment-image {
-  max-width: 2em;
+  width: 4em;
   border-radius: 0em;
+}
+
+.date-and-time {
 }

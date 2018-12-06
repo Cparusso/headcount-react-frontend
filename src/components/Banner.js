@@ -22,7 +22,7 @@ class Banner extends Component {
               </NavLink>
             </div>
             :
-            <p className='welcome-message' >Welcome back, {currentUser.name}</p>
+            <h4 className='welcome-message' >Welcome back, {currentUser.name}!</h4>
           }
         </div>
       </div>

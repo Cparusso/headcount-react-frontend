@@ -13,7 +13,7 @@ class MissionSection extends Component {
           </div>
           <div className='content'>
             <h2>Business Focus Header</h2>
-            <p>Something about helping non-profit organizations and other do-good businesses get better turnout at their volunteer events.</p>
+            <p>Our mission is to help provide better outreach for non-profit orginizations about the various volunteer-led events that they hold.</p>
           </div>
         </div>
         <div className='blurb'>
@@ -22,7 +22,7 @@ class MissionSection extends Component {
           </div>
           <div className='content'>
             <h2>User Focus Header</h2>
-            <p>Something about helping users to help others by giving them a clear view of all the upcoming events in their area.</p>
+            <p>This platform aims to help our members give back to their communities by showing them when and where their help is needed.</p>
           </div>
         </div>
       </div>

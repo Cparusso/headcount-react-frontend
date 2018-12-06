@@ -1,5 +1,5 @@
 .instructions {
-  height: 17em;
+  height: 40vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -8,14 +8,23 @@
 }
 
 .instructionCard {
-  width: 13em;
+  width: 15vw;
   text-align: center;
 }
 
 .content {
-  height: 9em;
+  height: 8vw;
+  margin-bottom: 6vh;
 }
 
 .image {
   padding-left: 0.65em;
+}
+
+.focus {
+  font-size: 2.5em;
+}
+
+.focus-body {
+  font-size: 1.5em;
 }
