@@ -14,7 +14,7 @@
   justify-content: space-between;
   align-items: center;
   width: 40vw;
-  font-size: 1.2em
+  font-size: 1em
 }
 
 img {
@@ -25,5 +25,5 @@ img {
 
 .content h2 {
   margin-top: 0;
-  font-size: 1.8em;
+  font-size: 1.3em;
 }

@@ -1,6 +1,6 @@
 #event-container {
-  height: 73vh;
-  margin-top: 36vh;
+  height: 79vh;
+  margin-top: 2vh;
   overflow-y: hidden;
   padding: 0 1em 2em 1em;
   max-width: 27.8em;
@@ -8,7 +8,7 @@
 
 #event-container h1 {
   margin-top: 0;
-  font-size: 3em;
+  font-size: 2.92em;
   margin-bottom: 1vh;
 }
 

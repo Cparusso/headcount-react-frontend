@@ -8,7 +8,7 @@
 
 #footer-container h1 {
   margin-bottom: -1em;
-  font-size: 2.8em;
+  font-size: 2em;
 }
 
 .buttons {
@@ -20,9 +20,9 @@
 }
 
 .log-or-sign-in-footer {
-  width: 7vw;
+  width: 6vw;
   height: 3vh;
-  font-size: 1.5em;
+  font-size: 0.9em;
   font-weight: 700;
   background-color: none;
   color: #E74C3C;

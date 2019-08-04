@@ -16,7 +16,7 @@ class Footer extends Component {
             <NavLink className='navlink' to='/login'>
               <button className='log-or-sign-in-footer'>Log In</button>
             </NavLink>
-            <NavLink className='navlink' to='/signin'>
+            <NavLink className='navlink' to='/signup'>
               <button className='log-or-sign-in-footer'>Sign Up</button>
             </NavLink>
           </div>

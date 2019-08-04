@@ -12,7 +12,7 @@ class MissionSection extends Component {
             <img src={childrensHosiptal} alt='childrens-hospital'/>
           </div>
           <div className='content'>
-            <h2>Business Focus Header</h2>
+            <h2>Mission Statement</h2>
             <p>Our mission is to help provide better outreach for non-profit orginizations about the various volunteer-led events that they hold.</p>
           </div>
         </div>
