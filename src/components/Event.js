@@ -39,16 +39,18 @@ class Event extends Component {
 
     return (
       <div className='event'>
-        <NavLink className='navlink' to='/business'>
-          <h2 onClick={() => updateCurrentBusiness(businessInfo)} className='business-link' >{businessInfo.name}</h2>
-        </NavLink>
-        <h4 onClick={() => setHighlight(eventInfo)} className='event-title'>{eventInfo.title}</h4>
-        <div className='event-info-section'>
-          <p>{eventInfo.about.length < 50 ? eventInfo.about : `${eventInfo.about.slice(0, 50)}...`}</p>
-          <div className='time-and-commit'>
-            <p>{eventInfo.time} <br></br> {eventInfo.date}</p>
-            {usersEvents ? this.checkCommitment(eventInfo, usersEvents) : <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}
+        <div className='event-info-container'>
+          <NavLink className='navlink' to='/business'>
+            <h2 onClick={() => updateCurrentBusiness(businessInfo)} className='business-link' >{businessInfo.name}</h2>
+          </NavLink>
+          <h4 onClick={() => setHighlight(eventInfo)} className='event-title'>{eventInfo.title}</h4>
+          <div className='event-info-section'>
+            <p>{eventInfo.about.length < 100 ? eventInfo.about : `${eventInfo.about.slice(0, 100)}...`}</p>
           </div>
+        </div>
+        <div className='time-and-commit'>
+          <p>{eventInfo.time} <br></br> {eventInfo.date}</p>
+          {usersEvents ? this.checkCommitment(eventInfo, usersEvents) : <img className='commitment-image' onClick={() => this.commitToEvent(eventInfo)} src={uncommitted} alt={'uncommitted-icon'} />}
         </div>
       </div>
     );

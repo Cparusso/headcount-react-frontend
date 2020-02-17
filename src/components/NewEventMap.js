@@ -14,8 +14,8 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoiY3BhcnVzc28iLCJhIjoiY2pwNDdhemRyMHBydDNxb2I1bDZ
 class NewEventMap extends Component {
   state = {
     viewport: {
-      width: 700,
-      height: 550,
+      width: '35vw',
+      height: '90.7vh',
       latitude: 40.710103,
       longitude: -74.013930,
       zoom: 15
@@ -56,7 +56,6 @@ class NewEventMap extends Component {
       <div>
         <ReactMapGL
           {...this.state.viewport}
-          className='map'
           mapStyle={'mapbox://styles/cparusso/cjp4e4ko40uu42smo9wuwsx1h'}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onViewportChange={(viewport) => this.setState({viewport})}>

@@ -9,12 +9,12 @@
 
 .about-container {
   width: 50vw;
-  margin-top: 30vh;
+  margin-top: 10vh;
   margin-right: 30vh;
   font-size: 1.5em;
   /* over */
 }
 
 .about-container-img {
-  width: 30vw;
+  /* width: 30vw; */
 }

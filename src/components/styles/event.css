@@ -4,10 +4,14 @@
 }
 
 .event {
-  border-bottom: 0.05em solid #e6e6e6;
-  border-top: 0.05em solid #e6e6e6;
-  margin-bottom: -0.1em;
-  padding: 0.1em 0em 1em 1em;
+  border: 0.05em solid #e6e6e6;
+  margin: 1vh 0;
+  border-radius: 0.3em;
+  padding: 3vh 1vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .business-link {
@@ -40,10 +44,9 @@
   }
 }
 
-.event-title {
-  margin-top: -1em;
-  margin-bottom: -0.5em;
-}
+/* .event-info-container {
+
+} */
 
 .event-info-section {
   display: flex;
@@ -54,20 +57,19 @@
   align-items: flex-end;
 }
 
-.event-info-section > p {
-  width: 17.3em;
-}
-
 .time-and-commit {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-end;
+}
+
+.time-and-commit p {
+  text-align: right;
+  margin: 0;
 }
 
 .commitment-image {
   width: 4em;
   border-radius: 0em;
-}
-
-.date-and-time {
+  margin: 0;
 }

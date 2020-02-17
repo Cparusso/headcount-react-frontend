@@ -56,8 +56,8 @@ class Search extends Component {
 
       <div>
         <div className='event-section'>
-          <NewEventMap businesses={businesses} oneBusinessPerEvent={oneBusinessPerEvent} />
           <UpcomingEvents updateCurrentBusiness={updateCurrentBusiness} currentUser={currentUser} jwt={jwt} fetchUsers={fetchUsers} usersEvents={usersEvents} presentPage={presentPage} userEvents={userEvents} allEvents={allEvents} businessEvents={businessEvents} businesses={businesses} setHighlight={setHighlight} highlight={highlight} />
+          <NewEventMap businesses={businesses} oneBusinessPerEvent={oneBusinessPerEvent} />
         </div>
         {Object.keys(highlight).length === 0 ? null : <HighlightedEvent highlight={highlight}/>}
 

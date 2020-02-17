@@ -1,8 +1,4 @@
 .event-section {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  height: 35em;
-  padding: 0 4em;
+  justify-content: space-between;
 }
